@@ -22,23 +22,28 @@ Project name: **Propwash**.
 - **UI / glue / level assembly:** GDScript.
 - **Build:** SCons (the `godot-cpp` standard); CMake is acceptable. Finalize in M0.
 
-## Build & run (placeholders — finalize during M0)
+## Build & run
+
+Toolchain: **Godot 4.6.3-stable** editor; **godot-cpp pinned to `godot-4.5-stable`** tag
+(`compatibility_minimum = 4.5` — forward-compatible with the 4.6 editor; bump the submodule
+when godot-cpp 10.x goes stable). SCons 4.x, C++ via MSVC (Windows) / GCC or Clang (Linux).
 
 ```bash
-# One-time: fetch godot-cpp (as a submodule) and build the C++ bindings + extension
+# One-time: fetch godot-cpp (as a submodule)
 git submodule update --init --recursive
 
-# Linux (debug)
+# Linux (debug) — verified
 scons platform=linux target=template_debug
 
-# Windows (from a Developer Command Prompt, debug)
+# Windows (from a Developer Command Prompt, debug) — not yet machine-verified
 scons platform=windows target=template_debug
 
 # Run: open the Godot project in the editor, or
 godot --path godot/
 ```
 
-Record the final, verified commands here after M0, for both Windows and Linux.
+The extension builds into `godot/bin/` (see `godot/bin/propwash.gdextension` for the
+per-platform library names).
 
 ## Architecture rules (do not violate without asking)
 
@@ -96,5 +101,6 @@ generic gamepad fallback and keyboard for testing before hardware is connected.
 
 ## Status
 
-- Current milestone: **M0 — not started.**
+- Current milestone: **M0 — in progress** (scaffold: Godot project + GDExtension that
+  loads and prints from C++; Linux build verified, Windows build pending a Windows machine).
 - License: MIT.

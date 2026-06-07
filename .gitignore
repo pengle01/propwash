@@ -1,0 +1,23 @@
+# SCons
+.sconsign.dblite
+*.os
+*.o
+*.obj
+
+# Built extension binaries
+godot/bin/*.so
+godot/bin/*.dll
+godot/bin/*.dylib
+godot/bin/*.lib
+godot/bin/*.exp
+godot/bin/*.pdb
+
+# Godot editor caches
+godot/.godot/
+*.import
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
